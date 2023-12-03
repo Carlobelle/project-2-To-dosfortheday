@@ -8,15 +8,15 @@
   <div class="col-md-6">
     <h3>Post A New Bible Verse:</h3>
 
-    <form class="form new-project-form">
+    <form class="form new-bibleverses-form">
       <div class="form-group">
-        <label for="project-name">Bible Verse:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
+        <label for="bibleverses-name">Bible Verse:</label>
+        <input class="form-input" type="text" id="bibleverses-verse" name="bibleverses-verse" />
       </div>
       
       <div class="form-group">
-        <label for="project-desc">description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+        <label for="bibleverses-desc">description:</label>
+        <textarea class="form-input" id="bibleverses-desc" name="bibleverses-desc"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
@@ -24,17 +24,17 @@
     </form>
   </div>
 
-  {{#if projects.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
+  {{#if bible_verses.length}}
+  <div class="col-md-6 bibleverses-list">
+    <h3>Current Bible Verses:</h3>
 
-    {{#each projects as |project|}}
+    {{#each bible_verses as |bibleverses|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+        <h4><a href="/bibleverses/{{bibleverses.id}}">{{bibleverses.verse}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger" data-id="{{bibleverses.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}

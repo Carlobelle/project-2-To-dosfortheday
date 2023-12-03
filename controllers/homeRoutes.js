@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const bibleVerses = bibleVerseData.map((bibleVerse) => bibleVerseibleVerse.get({ plain: true }));
+    const bibleVerses = bibleVerseData.map((bibleVerse) => bibleVerse.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/BibleVerse/:id', async (req, res) => {
+router.get('/bibleverses/:id', async (req, res) => {
   try {
     const bibleVerseData = await BibleVerse.findByPk(req.params.id, {
       include: [
@@ -40,7 +40,7 @@ router.get('/BibleVerse/:id', async (req, res) => {
 
     const bibleVerse = bibleVerseData.get({ plain: true });
 
-    res.render('BibleVerse', {
+    res.render('bibleVerse', {
       ...bibleVerse,
       logged_in: req.session.logged_in
     });
@@ -59,7 +59,7 @@ router.get('/profile', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-
+console.log(user)
     res.render('profile', {
       ...user,
       logged_in: true
